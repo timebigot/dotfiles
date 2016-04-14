@@ -9,7 +9,7 @@ alias vimrc='vi ~/.vimrc'
 alias bashrc='vi ~/.bash_aliases'
 
 # ls
-alias l='ls -l'
+alias l='ls -lA'
 alias la='ls -A'
 alias ls='ls --color=auto'
 
