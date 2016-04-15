@@ -21,7 +21,7 @@ set smarttab
 set ignorecase
 set noerrorbells
 set softtabstop=2
-set tabstop=2
+set tabstop=8
 set smarttab
 set autoindent
 set cursorline
@@ -32,6 +32,10 @@ set relativenumber
 set incsearch
 set hlsearch
 set visualbell
+set expandtab
+set shiftwidth=4
+set smartindent
+set cindent
 
 syntax on
 
