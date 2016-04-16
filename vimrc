@@ -1,5 +1,7 @@
 "plugins
 
+set shell=/bin/sh
+
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+={repository_root}/powerline/bindings/vim
 
