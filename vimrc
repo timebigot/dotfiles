@@ -12,6 +12,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'powerline/powerline'
 Plugin 'kien/ctrlp.vim'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on
@@ -38,10 +40,10 @@ set expandtab
 set shiftwidth=4
 set smartindent
 set cindent
+set textwidth=79
 
+let python_highlight_all=1
 syntax on
-
-filetype plugin indent on
 
 inoremap jk <ESC>
 
