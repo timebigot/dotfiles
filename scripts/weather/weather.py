@@ -9,7 +9,9 @@ abspath = os.path.abspath('__file__')
 dirname = os.path.dirname(abspath)
 os.chdir(dirname)
 
-api = 'http://api.wunderground.com/api/e3f6f306bfae4a63/conditions/q/va/oakton.json'
+apikey = open('apikey.txt').read()
+
+api = 'http://api.wunderground.com/api/' + apikey + '/conditions/q/va/oakton.json'
 cur = 'weather.json'
 
 if not os.path.isfile(cur):
