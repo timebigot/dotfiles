@@ -20,9 +20,3 @@ alias logout 'openbox --exit'
 function myip
     wget http://ipinfo.io/ip -qO -
 end
-
-# for tmux status bar
-
-function battery
-    py ~/Projects/batteryinfo/battery.py
-end
