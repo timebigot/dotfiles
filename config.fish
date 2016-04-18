@@ -1,7 +1,8 @@
-# powerline
+# profile
 
-#set fish_function_path $fish_function_path "/usr/lib/python3.5/site-packages/powerline/bindings/fish"
-#powerline-setup
+if status --is-login
+    set PATH $PATH /usr/bin /sbin
+end
 
 # alias
 
@@ -18,4 +19,10 @@ alias logout 'openbox --exit'
 
 function myip
     wget http://ipinfo.io/ip -qO -
+end
+
+# for tmux status bar
+
+function battery
+    py ~/Projects/batteryinfo/battery.py
 end

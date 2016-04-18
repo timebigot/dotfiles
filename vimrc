@@ -3,27 +3,18 @@
 set shell=/bin/sh
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/lib/python3.5/site-packages/powerline/bindings/vim
 
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'powerline/powerline'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 filetype plugin indent on
-
-"plugin tweaks
-
-set laststatus=2
-let g:airline_powerline_fonts = 1
 
 "settings
 
