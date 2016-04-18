@@ -2,13 +2,29 @@
 
 from urllib import request
 import json
+import os
+import time
 
-url = 'http://api.wunderground.com/api/e3f6f306bfae4a63/conditions/q/va/oakton.json'
-req = request.urlopen(url).read()
-decode = req.decode('utf-8')
-json = json.loads(decode)
+abspath = os.path.abspath('__file__')
+dirname = os.path.dirname(abspath)
+os.chdir(dirname)
 
-temp = str(json['current_observation']['temp_f'])
+api = 'http://api.wunderground.com/api/e3f6f306bfae4a63/conditions/q/va/oakton.json'
+cur = 'weather.json'
+
+if not os.path.isfile(cur):
+    request.urlretrieve(api, 'weather.json')
+
+mtime = os.path.getmtime(cur)
+timediff = time.time() - mtime
+
+if timediff > 3600:
+    request.urlretrieve(api, 'weather.json')
+
+req = open(cur).read()
+json = json.loads(req)
+
+temp = str(int(json['current_observation']['temp_f']))
 cond = str(json['current_observation']['weather'])
 
 weather = temp + '° ' + cond
