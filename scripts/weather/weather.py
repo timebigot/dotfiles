@@ -5,11 +5,11 @@ import json
 import os
 import time
 
-abspath = os.path.abspath('__file__')
+abspath = os.path.abspath(__file__)
 dirname = os.path.dirname(abspath)
 os.chdir(dirname)
 
-apikey = open('apikey.txt').read()
+apikey = open('apikey.txt').read().rstrip()
 
 api = 'http://api.wunderground.com/api/' + apikey + '/conditions/q/va/oakton.json'
 cur = 'weather.json'
