@@ -13,9 +13,11 @@ alias v 'vim'
 alias install 'sudo pacman -S'
 alias uninstall 'sudo pacman -R'
 alias py 'python'
+alias work 'cd ~/Projects'
 alias dot 'cd ~/Projects/dotfiles'
 alias vimrc 'vim ~/.vimrc'
 alias logout 'openbox --exit'
+alias server 'python manage.py runserver'
 
 function myip
     wget http://ipinfo.io/ip -qO -
