@@ -1,0 +1,18 @@
+session_name: akasaka
+windows:
+    - window_name: console
+      panes:
+        - shell_command:
+            - work
+            - cd akasaka
+            - c
+        - shell_command:
+            - work
+            - cd akasaka
+            - c
+    - window_name: vim
+      panes:
+        - shell_command:
+            - work
+            - cd akasaka
+            - v
