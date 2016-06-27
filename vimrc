@@ -1,6 +1,8 @@
 "plugins
 
-set shell=/bin/sh
+"set shell=/bin/sh
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -39,9 +41,14 @@ set expandtab
 set shiftwidth=4
 set smartindent
 set cindent
+set clipboard=unnamed
+
+set background=dark
+let g:solarized_termcolors=256
+"colorscheme solarized
 
 let python_highlight_all=1
-syntax on
+syntax enable
 
 inoremap jk <ESC>
 
