@@ -1,24 +1,21 @@
 "plugins
 
 set shell=/bin/sh
-
 set rtp+=~/.vim/bundle/Vundle.vim
-
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'snippets'
 
 call vundle#end()
 filetype plugin indent on
 
 "settings
-
 set number
 set smarttab
 set ignorecase
@@ -40,12 +37,21 @@ set shiftwidth=4
 set smartindent
 set cindent
 
-let python_highlight_all=1
+"colors
 syntax on
+set term=screen-256color
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+let python_highlight_all=1
 
+"remapped ESC
 inoremap jk <ESC>
 
 "remapping
 let mapleader="\<Space>"
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+"nohl by hitting return
+nnoremap <CR> :noh<CR><CR>

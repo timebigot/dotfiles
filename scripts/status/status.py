@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from urllib import request
+from urllib import request, error
 import os
 import re
 import json
@@ -19,13 +19,19 @@ def weather():
     cur = 'weather.json'
 
     if not os.path.isfile(cur):
-        request.urlretrieve(api, 'weather.json')
+        try:
+            request.urlretrieve(api, 'weather.json')
+        except error.URLError:
+           pass
 
     mtime = os.path.getmtime(cur)
     timediff = time.time() - mtime
 
     if timediff > 300:
-        request.urlretrieve(api, 'weather.json')
+        try:
+            request.urlretrieve(api, 'weather.json')
+        except error.URLError:
+           pass
 
     req = open(cur).read()
     obj = json.loads(req)
@@ -46,6 +52,10 @@ def weather():
         icon = '⛅'
     elif cond == 'Rain':
         icon = '☂'
+    elif cond == 'Fog':
+        icon = '🌫'
+    elif cond == 'Thunderstorm':
+        icon = '⚡'
     else:
         icon = cond
 
@@ -56,16 +66,20 @@ def wifi():
 
     cmd = "iwconfig wlp2s0 | grep -Eo '\-[0-9]+ dBm'"
     wifi_dbm = os.popen(cmd).read().rstrip()
+    
+    if wifi_dbm:
+        dbm = int(re.sub(r' dBm', '', wifi_dbm))
+        wifi = 2 * (dbm + 100)
+        # round to nearest 10
+        wifi = round(wifi, -1)
+        # change to str
+        wifi = str(wifi)
+        
+        if wifi == '100' or wifi == '110' or wifi == '120' or wifi =='130' or wifi == '140' or wifi == '150':
+            wifi = '99'
 
-    dbm = int(re.sub(r' dBm', '', wifi_dbm))
-    wifi = 2 * (dbm + 100)
-    # round to nearest 10
-    wifi = round(wifi, -1)
-    # change to str
-    wifi = str(wifi)
-
-    if not wifi:
-        wifi = 'XX'
+    else:
+        wifi = '00'
 
     wifi = wifi + '%'
 
