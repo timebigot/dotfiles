@@ -33,7 +33,7 @@ set expandtab
 set shiftwidth=4
 set smartindent
 set cindent
-set clipboard=unnamed
+set clipboard+=unnamed
 
 "colors
 syntax on
@@ -46,10 +46,14 @@ let python_highlight_all=1
 "remapped ESC
 inoremap jk <ESC>
 
+"new tab
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
+
 "remapping
 let mapleader="\<Space>"
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 "nohl by hitting return
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>

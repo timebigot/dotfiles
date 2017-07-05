@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from urllib import request, error
 import os
@@ -66,7 +66,7 @@ def wifi():
 
     cmd = "iwconfig wlp2s0 | grep -Eo '\-[0-9]+ dBm'"
     wifi_dbm = os.popen(cmd).read().rstrip()
-    
+
     if wifi_dbm:
         dbm = int(re.sub(r' dBm', '', wifi_dbm))
         wifi = 2 * (dbm + 100)
@@ -74,7 +74,7 @@ def wifi():
         wifi = round(wifi, -1)
         # change to str
         wifi = str(wifi)
-        
+
         if wifi == '100' or wifi == '110' or wifi == '120' or wifi =='130' or wifi == '140' or wifi == '150':
             wifi = '99'
 
@@ -108,14 +108,15 @@ def battery():
 
 def clock():
     today = datetime.datetime.today()
-    cal = today.strftime('%m/%d')
-    clk = today.strftime('%I:%M')
+    cal = today.strftime('%a %m/%d · %I:%M%p').upper()
+    return cal
 
-    return ' CAL: ' + cal + ' CLK: ' + clk
-
-TIM = clock()
+"""
 WTR = weather()
 NET = wifi()
 POW = battery()
 
 print('WTR: ' + WTR + ' NET: ' + NET + ' POW: ' + POW + TIM)
+"""
+TIM = clock()
+print(TIM)
